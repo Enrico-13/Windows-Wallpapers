@@ -1,6 +1,8 @@
 import os
 import shutil
 from PIL import Image
+from tqdm import tqdm
+from time import sleep
 
 # pega o nome do usuário
 user = os.getlogin()
@@ -18,7 +20,8 @@ if not os.path.exists(curdir_mobile):
     os.mkdir(curdir_mobile)
 
 # pega cada arquivo dentro da pasta dos wallpapers
-for file in os.listdir(dir):
+for file in tqdm(os.listdir(dir), desc='Gerando Wallpapers: ', colour='#4169E1'):
+    sleep(0.1)
     new_filepath = None
     try:
         # cria um caminho incluindo o arquivo atual
