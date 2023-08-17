@@ -5,9 +5,9 @@ from tqdm import tqdm
 from time import sleep
 
 # pega o nome do usuário
-user = os.getlogin()
+user = os.path.expanduser("~")
 # define o caminho dos wallpapers
-dir = f'C:\\Users\\{user}\\AppData\\Local\\Packages\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\LocalState\\Assets'
+dir = os.path.join(user, 'AppData\\Local\\Packages\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\LocalState\\Assets')
 # pega a pasta atual
 curdir = os.getcwd()
 
