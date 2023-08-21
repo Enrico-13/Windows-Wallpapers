@@ -18,7 +18,8 @@ if not os.path.exists(curdir_desktop):
 if not os.path.exists(curdir_mobile):
     os.mkdir(curdir_mobile)
 
-count = 0
+count_desktop = 0
+count_mobile = 0
 
 # pega cada arquivo dentro da pasta dos wallpapers
 for file in os.listdir(dir):
@@ -55,7 +56,10 @@ for file in os.listdir(dir):
         # move o arquivo para a pasta destino
         else:
             shutil.move(temp_filepath_name, new_filepath)
-            count += 1
+            if new_filepath == curdir_desktop:
+                count_desktop += 1
+            else:
+                count_mobile += 1
 
     except FileExistsError:
         os.remove(temp_filepath_name)
@@ -67,5 +71,5 @@ for file in os.listdir(dir):
         pass
 
 
-print(f"{count} imagens foram criadas.")
+print(f"{count_desktop} wallpapers desktop e {count_mobile} wallpapers mobile foram criados.")
 input("Aperte ENTER para finalizar")
